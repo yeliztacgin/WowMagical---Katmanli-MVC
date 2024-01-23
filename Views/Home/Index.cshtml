@@ -1,0 +1,125 @@
+﻿
+<html>
+<head>
+   
+</head>
+<body>
+
+
+    <div class="text-center" style="width:1120px">
+
+        <img src="~/images/Snow_gif.gif" class="card-img" alt="...">
+
+    </div>
+    <br />
+   
+    <center>
+        <div class="row row-cols-1 row-cols-md-5 g-2">
+            <div class="col">
+                <div class="card" style="height:100px;width:100px">
+                    <img src="~/images/indir.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <a asp-controller="TagIcon" asp-action="Index">
+                            <button type="button" class="btn btn-warning"
+                                    style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
+                                Etiket İndirimleri
+
+                            </button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card" style="height:100px;width:100px">
+                    <img src="~/images/Casas para colorir.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <a asp-controller="Iglo" asp-action="Index">
+
+                            <button type="button" class="btn btn-warning"
+                                    style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
+                                İGLO MAĞAZALARI
+
+                            </button>
+                        </a>
+
+
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card" style="height:100px;width:100px">
+                    <img src="~/images/Wearth joins forces with Veo.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <a asp-controller="GiftCard" asp-action="Index">
+                            
+                                <button type="button" class="btn btn-warning"
+                                        style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
+                                   Hediye Kartları
+
+                                </button>
+                            </a>
+                        
+
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card" style="height:100px;width:100px">
+                    <img src="~/images/products/Mensagem Vector ícone PNG , Background, Base, Basic Ui Imagem PNG e Vetor Para Download Gratuito.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <a asp-controller="Comment" asp-action="Index">
+                            
+                                <button type="button" class="btn btn-warning"
+                                        style="--bs-btn-padding-y: .20rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
+                                 Sık Sorulan Sorular
+
+                                </button>
+                            </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card" style="height:100px;width:100px">
+                    <img src="~/images/products/Screenshot_20240104_111333_Pinterest-01.jpeg" class="card-img-top" alt="...">
+                    <br />
+                    <div class="card-body">
+                        <a asp-controller="ColdDelivery" asp-action="Index">
+
+                            <button type="button" class="btn btn-warning"
+                                    style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
+                               Soguk Teslimat
+
+                            </button>
+                        </a>
+                </div>
+            </div>
+
+        </div>
+    </center>
+    <br />
+    <br />
+   <br />
+    <br />
+    <div class="row">
+
+        <div class="col-3">
+
+            <vc:categories></vc:categories>
+
+        </div>
+
+
+
+        <div class="col-9">
+
+            <vc:products category-id="@ViewBag.CategoryId"></vc:products>
+
+        </div>
+
+    </div>
+    <nav class="blog-pagination" aria-label="Pagination">
+        <a class="btn btn-outline-primary rounded-pill" href="#">Başa Dön</a>
+    </nav>
+   
+</body>
+</html>

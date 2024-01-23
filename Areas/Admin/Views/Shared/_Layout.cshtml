@@ -1,0 +1,41 @@
+﻿
+
+<html>
+<head>
+
+    <title>Yönetim</title>
+
+    <partial name="_StylesPartial"></partial>
+</head>
+<body>
+
+    <div class="container">
+        <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+            <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+                <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
+                <span class="fs-4">Yönetim Paneli</span>
+            </a>
+
+            <ul class="nav nav-pills">
+                <li class="nav-item"><a asp-area="" asp-controller="" asp-action="" class="nav-link active fw-bold" aria-current="page">Siteye Geri Dön</a></li>
+                <li class="nav-item"><a asp-controller="Category" asp-action="List" class="nav-link">Kategoriler</a></li>
+                <li class="nav-item"><a asp-controller="Product" asp-action="List" class="nav-link">Ürünler</a></li>
+            </ul>
+        </header>
+    </div>
+
+    <div class="container">
+        @RenderBody()
+    </div>
+
+    <partial name="_ScriptsPartial"></partial>
+
+    @await RenderSectionAsync("Scripts", required:false);
+
+
+
+
+
+</body>
+</html>
+

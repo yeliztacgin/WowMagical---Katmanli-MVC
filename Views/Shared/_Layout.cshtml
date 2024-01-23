@@ -1,0 +1,150 @@
+﻿@using WowMagical.WebUI.Extensions;
+<html>
+
+<head>
+    <title>Hediyelik Eşya Satış Sitesi</title>
+
+    <meta name="description" content="MVC Web Projesi" />
+
+    <meta name="keywords" content="HTML, CSS, JavaScript, Jquery, MVC, .Net, Asp.Net,">
+    <meta name="author" content="Yeliz Taçgın">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <marquee direction=left> <font color=blue size=6> Çok Satanlarda %30 İndirimin Keyfini Çıkarın </font></marquee>
+
+    <style>
+
+        #bg {
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            height: 100%
+        }
+
+        #header {
+            text-align: center;
+            position: absolute;
+            top: 15%;
+            width: 100%
+        }
+
+        img {
+            height: 550px
+        }
+    </style>
+    <style>
+
+        label.required:after {
+            content: "*\00a0";
+            color: red;
+            margin-left: 2px;
+        }
+
+    </style>
+</head>
+<body class="d-flex flex-column min-vh-100">
+
+
+    <div class="container">
+        <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+            <div class="col-md-3 mb-2 mb-md-0">
+                <a href="/" class="d-inline-flex link-body-emphasis text-decoration-none">
+                    <img src="~/images/logo (2).jpeg" style="width:170px;height:160px" />
+                </a>
+            </div>
+
+            <ul class="nav col-12 col-md-auto mb-3 justify-content-center mb-md-0">
+                <a asp-controller="Home" asp-action="Index" class="btn btn-danger">ANASAYFA</a>
+
+                <a asp-controller="Squirrel" asp-action="Index" class="btn btn-danger">SİNCAPLAR İÇİN</a>
+
+                <a asp-controller="PolarBear" asp-action="Index" class="btn btn-danger">KUTUP AYILARI İÇİN</a>
+
+                <a asp-controller="ContacUs" asp-action="Index" class="btn btn-danger">İLETİŞİM</a>
+
+                <a asp-controller="AboutUs" asp-action="Index" class="btn btn-danger">HİKAYEMİZ</a>
+
+            </ul>
+
+
+            <div class="d-none" id="login">
+                <partial name="_LoginPartial" model="new LoginViewModel()">
+
+            </div>
+
+            @if (!User.IsLogged())
+            {
+                <div id="welcome">
+                    <partial name="_WelcomePartial">
+                </div>
+            }
+            else
+            {
+
+                var firstName = User.GetUserFirstName();
+                var lastName = User.GetUserLastName();
+
+                <div class="d-flex">
+
+                    @if (User.IsAdmin())
+                    {
+                        <div class="ms-3 me-3">
+                            <a asp-area="Admin" asp-controller="Dashboard" asp-action="Index" class="btn btn-danger">Yönetim Paneli</a>
+                        </div>
+                    }
+
+                    <div class="mt-2">
+                        Hoş Geldin @firstName @lastName
+                    </div>
+
+
+
+
+                    <a asp-controller="Auth" asp-action="Logout" class="btn btn-outline-warning ms-3">Çıkış Yap</a>
+
+
+                </div>
+            }
+
+        </header>
+
+    </div>
+
+    <br />
+    <br />
+
+    <div class="container">
+        @RenderBody()
+    </div>
+
+
+    <footer class="bg-light text-white text-center fw-bold py-2 mt-auto">
+
+        <img src="~/images/logo (2).jpeg" class="card-img" style="width:250px;height:250px">
+
+        <p class="text-secondary">Tüm Hakları Yeliz Taçgın'a aittir.'</p>
+
+
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+
+        $('#btnGirisYap').click(function () {
+            $('#login').removeClass('d-none');
+            $('#welcome').addClass('d-none');
+        })
+
+        $('#btnIptal').click(function () {
+            $('#login').addClass('d-none');
+            $('#welcome').removeClass('d-none')
+        })
+
+    </script>
+
+</body>
+
+
+</html>
+

@@ -1,0 +1,54 @@
+﻿@model ProductDetailViewModel
+<div class="row">
+    <div class="col-md-8 offset-2">
+        <div class="card mb-5 mt-5" style="width:550px; height:250px">
+            <div class="row g-0">
+                <div class="col-md-4">
+
+                    @if (string.IsNullOrWhiteSpace(Model.ImagePath))
+                    {
+                        <img class="mx-auto d-block" style="width:200px; height:200px" src="~/images/NoImageFound.png" />
+                    }
+                    else
+                    {
+                        <img class="mx-auto d-block" style="width:200px; height:200px" src="~/images/products/@Model.ImagePath" />
+                    }
+
+                </div>
+                <div class="col-md-8 text-center">
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold">@Model.Name</h5>
+                        <p class="card-text">@Model.Description</p>
+
+                        <p class="card-text fw-bold" style="color:darkred">@Model.UnitPrice TL</p>
+
+                        <p class="card-text fw-bold" style="color:darkblue">Son @Model.UnitsInStock Ürün!</p>
+
+
+                        <a asp-controller="Home" asp-action="Index" asp-route-categoryId="@Model.CategoryId" class="card-text fw-bold"><small class="text-muted">@Model.CategoryName</small></a>
+                        
+                        <br />
+
+                        <div class="d-grid col-6 mx-auto">
+                            <a asp-controller="Basket" asp-action="Index" class="btn btn-primary" type="button">Sepete Ekle</a>
+                            
+                        </div>
+                      
+
+
+                        @if (!string.IsNullOrWhiteSpace(@Model.ModifiedDate.ToString()))
+                        {
+                            <p class="card-text mt-3">
+                                <small class="text-muted">
+                                    Son Güncellenme Tarihi : @Model.ModifiedDate.Value.ToShortDateString();
+                                </small>
+                            </p>
+                        }
+
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

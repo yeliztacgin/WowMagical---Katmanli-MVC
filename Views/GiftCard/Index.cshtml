@@ -1,0 +1,102 @@
+﻿
+@model GiftFormViewModel
+HEDİYE KART TEMA SEÇİMİ
+
+<div  class="row row-cols-1 row-cols-md-3 g-2">
+    <div class="col">
+        <div class="card " >
+            <img src="~/images/20240104_094544_0001.png" class="card-img-top" style="height:200px" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Doğum Günü</h5>
+            </div> 
+                <button type="button" class="btn btn-secondary">Seç</button>   
+        </div>
+    </div>
+    <div class="col">
+        <div class="card ">
+            <img src="~/images/20240104_095611_0000.png" class="card-img-top" style="height:200px" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Teşekkür Kartı</h5>
+            </div>
+            
+                <button type="button" class="btn btn-secondary">Seç</button>
+
+        </div>
+    </div>
+    <div class="col">
+        <div class="card ">
+            <img src="~/images/20240104_094544_0000.png" class="card-img-top" style="height:200px" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Yeni Yıl Kartı</h5>
+            </div>
+          
+                <button type="button" class="btn btn-secondary">Seç</button>
+        </div>
+    </div>
+</div>
+ <br/>
+ HEDİYE KART TUTARI
+ <br />
+
+ <br />
+<button type="button" class="btn btn-outline-danger">100TL</button>
+<button type="button" class="btn btn-outline-danger">250TL</button>
+<button type="button" class="btn btn-outline-danger">350TL</button>
+<button type="button" class="btn btn-outline-danger">500TL</button>
+<button type="button" class="btn btn-outline-danger">1000TL</button>
+
+  <br />
+  <br />
+ <br />
+
+
+<div class="row">
+
+    <div class="col-8 offset-2">
+
+        <div class="card" style="border:solid 2px">
+
+            <div class="card-header  fs-5">
+                HEDİYE KARTI GÖNDERİM BİLGİLERİ
+            </div>
+
+            <div class="card-body">
+
+                <form >
+
+                    @if (!string.IsNullOrWhiteSpace(ViewBag.ErrorMessage))
+                    {
+                        <div class="alert alert-danger">
+                            @ViewBag.ErrorMessage
+                        </div>
+                    }
+
+                  
+
+                    <div class="mb-2">
+                        <label asp-for="Name"></label>
+                        <input asp-for="Name" type="text" class="form-control" />
+                        <span class="text-danger fw-bold mt-1" asp-validation-for="Name"></span>
+                    </div>
+
+                    <div class="mb-2">
+                        <label asp-for="Description"></label>
+                        <input asp-for="Description" type="text" class="form-control" />
+                    </div>
+
+                    <button type="submit" class="btn btn-success mt-3 float-end">Hediye Kartı Gönder</button>
+
+                </form>
+
+
+
+            </div>
+
+
+
+        </div>
+
+
+    </div>
+
+</div>
